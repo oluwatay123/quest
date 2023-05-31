@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quest</title>
+    <link rel="stylesheet" href="app.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="quest">
+        <h1 style="color: rgb(243, 3, 51)">Quest</h1>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class="card2">
+          <h5 class="title">
+            generating captivating questions has never been easier.
+          </h5>
+          <div>
+            <textarea
+              name="question"
+              id="question"
+              cols="30"
+              rows="10"
+              placeholder="Enter Example"
+              maxlength="3000"
+            ></textarea>
+            <p id="charCount">0/3000</p>
+          </div>
+          <script>
+            var textarea = document.getElementById("question");
+            var charCount = document.getElementById("charCount");
+
+            textarea.addEventListener("input", function () {
+              var text = textarea.value;
+              var remainingChars = 3000 - text.length;
+
+              if (remainingChars < 0) {
+                textarea.value = text.slice(0, 3000);
+                remainingChars = 0;
+              }
+
+              charCount.textContent = "Characters: " + text.length + "/3000";
+            });
+          </script>
+
+          <div>
+            <button class="generate-button1" type="button" onclick="generate()">
+              Generate
+            </button>
+          </div>
+          <div class="card4"></div>
+        </div>
+        <!-- <div class="blob"></div> -->
+
+
+
+
+        <div class="card1" hidden="true" id="out">
+          <h2 class="title">Output</h2>
+          <div id="loader" class="loader"></div>
+          <div>
+            <textarea onload="myFunction()" style="margin:0;" name="question" id="output" cols="30" rows="10" value=""></textarea>
+          </div>
+        </div>
+        <div class="blob"></div>
+        </div>
+        </section>
+        <script src="./prompt.js"></script>
+        </body>
+        </html>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
